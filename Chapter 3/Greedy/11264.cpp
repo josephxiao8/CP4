@@ -44,7 +44,7 @@ while(t--){
 
 	int sum=0, counter=0;
 	for(int i=0; i<n; i++){
-		if(i<n-1 && sum<v[i+1]){
+		if(i<n-1 && sum+v[i]<v[i+1]){
 			sum+=v[i];
 			counter++;
 		}
