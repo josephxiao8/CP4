@@ -44,11 +44,10 @@ while(t--){
 
 	int sum=0, counter=0;
 	for(int i=0; i<n; i++){
-		sum+=v[i];
-		if(i<n-1 && sum>=v[i+1]){
-			sum-=v[i];
+		if(i<n-1 && sum<v[i+1]){
+			sum+=v[i];
+			counter++;
 		}
-		else counter++;
 	}
 	cout<<counter<<endl;
 }
