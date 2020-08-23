@@ -30,7 +30,6 @@ typedef tree<int,null_type,less<int>,rb_tree_tag,tree_order_statistics_node_upda
 
 
 bool comp(pi a, pi b){
-	if(a.s==b.s) return a.f>b.f;
 	return a.s>b.s;
 }
 
