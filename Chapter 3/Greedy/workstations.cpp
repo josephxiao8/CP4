@@ -46,7 +46,7 @@ for(int i=0; i<n; i++){
     if(q.empty()) q.push(v[i].f+v[i].s);
     else{
         if(q.top()<=v[i].f && v[i].f<=q.top()+m){
-			ans++;
+	    ans++;
             q.pop();
             q.push(v[i].f+v[i].s);
         }
