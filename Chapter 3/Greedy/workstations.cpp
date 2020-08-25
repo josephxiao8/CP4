@@ -41,15 +41,23 @@ for(int i=0; i<n; i++) cin>>v[i].f>>v[i].s;
 sort(v.begin(), v.end());
 
 int ans=0;
-multiset<int> sett;
+pqg q;
 for(int i=0; i<n; i++){
-   auto it=sett.lb(v[i].f-m);
-   if(it!=sett.end() && *it<=v[i].f){
-	   ans++;
-	   sett.erase(it);
-	   sett.insert(v[i].f+v[i].s);
-   }
-   else sett.insert(v[i].f+v[i].s);
+    if(q.empty()) q.push(v[i].f+v[i].s);
+    else{
+        if(q.top()<=v[i].f && v[i].f<=q.top()+m){
+			ans++;
+            q.pop();
+            q.push(v[i].f+v[i].s);
+        }
+        else if(v[i].f<q.top()){
+           q.push(v[i].f+v[i].s);
+        }
+        else{
+            q.pop();
+            i--;
+        }
+    }
 }
 
 cout<<ans;
